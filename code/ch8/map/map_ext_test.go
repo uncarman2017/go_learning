@@ -12,6 +12,7 @@ func TestMapWithFunValue(t *testing.T) {
 
 func TestMapForSet(t *testing.T) {
 	mySet := map[int]bool{}
+
 	mySet[1] = true
 	n := 3
 	if mySet[n] {
