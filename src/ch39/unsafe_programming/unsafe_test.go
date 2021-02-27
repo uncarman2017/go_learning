@@ -45,8 +45,11 @@ func TestAtomic(t *testing.T) {
 		data := atomic.LoadPointer(&shareBufPtr)
 		fmt.Println(data, *(*[]int)(data))
 	}
+
 	var wg sync.WaitGroup
+	
 	writeDataFn()
+
 	for i := 0; i < 10; i++ {
 		wg.Add(1)
 		go func() {

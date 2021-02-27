@@ -26,7 +26,7 @@ func CheckType(v interface{}) {
 
 func TestBasicType(t *testing.T) {
 	var f float64 = 12
-	CheckType(&f)
+	CheckType(f)
 
 }
 
