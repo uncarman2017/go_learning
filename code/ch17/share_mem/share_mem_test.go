@@ -20,7 +20,7 @@ func TestCounter(t *testing.T) {
 }
 
 func TestCounterThreadSafe(t *testing.T) {
-	var mut sync.Mutex
+	var mut sync.Mutex   // 协锁
 	counter := 0
 	for i := 0; i < 5000; i++ {
 		go func() {
@@ -31,7 +31,7 @@ func TestCounterThreadSafe(t *testing.T) {
 			counter++
 		}()
 	}
-	time.Sleep(1 * time.Second)
+	time.Sleep(1 * time.Second)  // 等待所有协程完成任务后继续执行后续代码
 	t.Logf("counter = %d", counter)
 
 }
@@ -48,10 +48,10 @@ func TestCounterWaitGroup(t *testing.T) {
 			}()
 			mut.Lock()
 			counter++
-			wg.Done()
+			wg.Done()  //通知等待组当前协程已结束任务
 		}()
 	}
-	wg.Wait()
+	wg.Wait() //等待的协程任务全部完成后，后续代码继续执行
 	t.Logf("counter = %d", counter)
 
 }

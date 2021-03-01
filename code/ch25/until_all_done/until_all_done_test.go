@@ -27,7 +27,7 @@ func FirstResponse() string {
 func AllResponse() string {
 	numOfRunner := 10
 	ch := make(chan string, numOfRunner)
-	for i := 0; i < numOfRunner; i++ {
+	for i := 0; i < numOfRunner; i++ {   //                              建立10个协程往通道写值
 		go func(i int) {
 			ret := runTask(i)
 			ch <- ret
