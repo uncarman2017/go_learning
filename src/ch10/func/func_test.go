@@ -52,5 +52,5 @@ func Clear() {
 func TestDefer(t *testing.T) {
 	defer Clear()
 	fmt.Println("Start")
-	panic("err")
+	panic("err") // panic后的代码不会执行
 }

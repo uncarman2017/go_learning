@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 	"time"
-)
+	)
 
 func TestObjPool(t *testing.T) {
 	pool := NewObjPool(10)

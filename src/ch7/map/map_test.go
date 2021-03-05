@@ -11,6 +11,8 @@ func TestInitMap(t *testing.T) {
 	t.Logf("len m2=%d", len(m2))
 	m3 := make(map[int]int, 10)
 	t.Logf("len m3=%d", len(m3))
+	m4 := map[string]int{"a": 1, "b": 2, "c": 3}
+	t.Log(m4["b"])
 }
 
 func TestAccessNotExistingKey(t *testing.T) {
@@ -18,7 +20,7 @@ func TestAccessNotExistingKey(t *testing.T) {
 	t.Log(m1[1])
 	m1[2] = 0
 	t.Log(m1[2])
-	m1[3] = 0
+	m1[3] = -1
 	if v, ok := m1[3]; ok {
 		t.Logf("Key 3's value is %d", v)
 	} else {

@@ -23,7 +23,7 @@ func TestSwitchCaseCondition(t *testing.T) {
 		case i%2 == 1:
 			t.Log("Odd")
 		default:
-			t.Log("unknow")
+			t.Log("unknown")
 		}
 	}
 }

@@ -24,7 +24,6 @@ func processRequest(reqs []string) []string {
 	for _, req := range reqs {
 		reqObj := &Request{}
 		reqObj.UnmarshalJSON([]byte(req))
-		//	json.Unmarshal([]byte(req), reqObj)
 
 		var buf strings.Builder
 		for _, e := range reqObj.PayLoad {
@@ -33,7 +32,6 @@ func processRequest(reqs []string) []string {
 		}
 		repObj := &Response{reqObj.TransactionID, buf.String()}
 		repJson, err := repObj.MarshalJSON()
-		//repJson, err := json.Marshal(&repObj)
 		if err != nil {
 			panic(err)
 		}

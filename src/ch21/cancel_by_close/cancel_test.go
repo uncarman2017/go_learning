@@ -8,7 +8,7 @@ import (
 
 func isCancelled(cancelChan chan struct{}) bool {
 	select {
-	case <-cancelChan:
+	case <-cancelChan: //数据进channel后返回true
 		return true
 	default:
 		return false
@@ -25,7 +25,7 @@ func cancel_2(cancelChan chan struct{}) {
 
 func TestCancel(t *testing.T) {
 	cancelChan := make(chan struct{}, 0)
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 5; i++ {  //开5个协程
 		go func(i int, cancelCh chan struct{}) {
 			for {
 				if isCancelled(cancelCh) {

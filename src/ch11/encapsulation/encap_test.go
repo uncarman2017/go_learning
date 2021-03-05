@@ -22,9 +22,17 @@ func (e Employee) String() string {
 	return fmt.Sprintf("ID:%s-Name:%s-Age:%d", e.Id, e.Name, e.Age)
 }
 
+func (e Employee) String2(a int) string {
+	//fmt.Printf("Address is %x\n", unsafe.Pointer(&e.Name))
+	return fmt.Sprintf("ID:%s-Name:%s-Age:%d", e.Id, e.Name, e.Age)
+}
+
+/**
+go中类型指针和类型实例成员的访问方式一致
+ */
 func TestCreateEmployeeObj(t *testing.T) {
-	e := Employee{"0", "Bob", 20}
-	e1 := Employee{Name: "Mike", Age: 30}
+	e := Employee{"0", "Bob", 20}  //返回实例
+	e1 := Employee{Name: "Mike", Age: 30} //返回实例
 	e2 := new(Employee) //返回指针
 	e2.Id = "2"
 	e2.Age = 22
@@ -41,4 +49,5 @@ func TestStructOperations(t *testing.T) {
 	e := Employee{"0", "Bob", 20}
 	fmt.Printf("Address is %x\n", unsafe.Pointer(&e.Name))
 	t.Log(e.String())
+	t.Log(e.String2(1))
 }

@@ -18,7 +18,7 @@ func (p *Pet) SpeakTo(host string) {
 }
 
 type Dog struct {
-	Pet
+	Pet    // 复用对象方式实现继承
 }
 
 func (d *Dog) Speak() {
@@ -29,4 +29,5 @@ func TestDog(t *testing.T) {
 	dog := new(Dog)
 
 	dog.SpeakTo("Chao")
+	dog.Speak()
 }

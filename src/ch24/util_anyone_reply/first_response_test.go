@@ -21,7 +21,7 @@ func FirstResponse() string {
 			ch <- ret
 		}(i)
 	}
-	return <-ch
+	return <-ch  //channel中取得第一条记录就返回
 }
 
 func TestFirstResponse(t *testing.T) {
